@@ -42,7 +42,8 @@ Airplane.prototype.land = function () {
 function Person(name, age) {
   this.name = name;
   this.age = age;
-  this.stomach = {};
+
+  this.stomach = [];
 }
 
 Person.prototype.eat= function(arrItem) {
@@ -57,6 +58,10 @@ Person.prototype.poop = function() {
     this.stomach.length === 0; 
     //requires a for loop I believe to empty
   } 
+}
+
+Person.prototype.toString = function() {
+  console.log(this.name + this.age)
 }
 
 /*
@@ -81,7 +86,7 @@ function Car(model, milesPerGallon) {
 }
 
 Car.prototype.fill = function(gallons) { 
-  return this.tank + gallons;
+  return this.tank += gallons;
 } 
 
 /*
