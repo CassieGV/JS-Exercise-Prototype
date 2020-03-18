@@ -54,7 +54,7 @@ Person.prototype.eat= function(arrItem) {
 
 Person.prototype.poop = function() {
   if (this.stomach.length === 10) {
-    this.stomach.pop() 
+    this.stomach.length === 0; 
     //requires a for loop I believe to empty
   } 
 }
@@ -79,6 +79,10 @@ function Car(model, milesPerGallon) {
   this.tank = 0;
   this.odometer = 0;
 }
+
+Car.prototype.fill = function(gallons) { 
+  return this.tank + gallons;
+} 
 
 /*
   TASK 3
