@@ -89,6 +89,19 @@ Car.prototype.fill = function(gallons) {
   return this.tank += gallons;
 } 
 
+Car.prototype.drive = function(distance) {
+  this.odometer = this.odometer + distance;
+  this.tank = this.tank - (distance / this.milesPerGallon );
+}
+
+// Car.prototype.fuel = function() {
+//   if (this.tank === 0) {
+//     this.drive {
+//       return `I ran out of fuel at ${this.odometer}!` ;
+//     }
+//   }
+// }
+
 /*
   TASK 3
     - Write a Baby constructor subclassing Person.
@@ -96,26 +109,31 @@ Car.prototype.fill = function(gallons) {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-const Baby = function Baby(babyAttributes) {
-  Person.call(this, name, age, babyAttributes);
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
 
-// Baby.prototype = Object.create(Person.prototype);
-
-  this.babyAttributes = babyAttributes.Baby;
-
-  this.favoriteToy = babyAttributes.favoriteToy;
+  this.favoriteToy = favoriteToy;
 }
+// const Baby = function Baby(babyAttributes) {
+//   Person.call(this, babyAttributes);
+
+Baby.prototype = Object.create(Person.prototype);
+
+//   this.babyAttributes = babyAttributes.Baby;
+
+//   this.favoriteToy = babyAttributes.favoriteToy;
+// }
 Baby.prototype.play = function() {
-  return `Playing with ${this.favoriteToy}`
-}
+   return `Playing with ${this.favoriteToy}`
+ }
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Directly attached to the function/object it is inside of (default binding)
+  2. similar to default binding mplicit binding makes this refer to the function/object directly above it but still in the same brackets
+  3. Explict binding is when the coder specifically binds this to something specific
+  4. And new binding uses this to transfer attribute names to subclasses/inherited classes
 */
 
 
